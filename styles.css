@@ -11,7 +11,7 @@ body {
   height: 500px;
   margin: 40px auto;
   border: 10px solid #7FFFD4;
-  background-color: black;
+  background-color: black; 
   overflow: hidden;
 }
 
@@ -62,7 +62,7 @@ body {
   top: 0px;
   width: 50px;
   height: 50px;
-  background: url("nave.png");
+  background: url("nave2.png");
   background-size: contain;
   background-repeat: no-repeat;
 }

@@ -2,12 +2,25 @@ var jet = document.getElementById("jet");
 var board = document.getElementById("board");
 var lives = 3;
 var level = 1;
-var rockSpeed = 700;
+var rockSpeed = 730;
 var rockCount = 0;
 var generaterocks;
 var gameStarted = false; 
 
 const nivel = document.getElementById('level');
+
+var levelSettings = {
+  2: { color: "#414A4C"},
+  3: { color: "#8B8589"},
+  4: { color: "#AA98A9"},
+  5: { color: "#645394"},
+  6: { color: "#614051"},
+  7: { color: "#1F305E"},
+  8: { color: "#43B3AE"},
+  9: { color: "#8A9A5B"},
+  10: {color: "#B8860B"}
+};
+
 
 window.addEventListener("keydown", (e) => {
   if (!gameStarted && e.keyCode === 32) {
@@ -112,18 +125,20 @@ function generateRocks() {
     }, rockSpeed);
     rockCount++;
 
-    if (rockCount >= 15) {
+    if (rockCount >= 20) {
       level++;
       nivel.textContent = level;
       clearInterval(generaterocks);
-      rockSpeed -= 100;
+      alert("Has alcanzado el nivel "+ level + "!");
+      if(levelSettings[level]){
+        board.style.backgroundColor = levelSettings[level].color;
+      }
+      rockSpeed -= 80;
       rockCount = 0;
       generateRocks();
     }
     }
-  }, 2000);
+  }, 1000);
 }
-
-generateRocks();
 
 
